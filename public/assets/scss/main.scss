@@ -1,0 +1,13 @@
+.angular-google-map-container {
+  height: 500px;
+
+  table & {
+    height: 300px;
+  }
+}
+
+.marker-label {
+  font-size: 1.1em;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px black;
+}

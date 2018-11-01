@@ -1,0 +1,67 @@
+<!doctype html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/"/>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="lib/ng-table/dist/ng-table.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body ng-app="iapAdmin">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="lib/es5-shim/es5-shim.js"></script>
+    <script src="lib/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div ng-include src="'modules/admin/views/partials/navbar.html'"></div>
+    <div ng-include src="'modules/admin/views/partials/messages.html'"></div>
+    <div class="container" ng-view=""></div>
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="lib/angular-http-auth/src/http-auth-interceptor.js"></script>
+    <script src='lib/lodash/lodash.min.js'></script>
+    <script src='lib/ng-table/dist/ng-table.min.js'></script>
+    <script src='lib/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+    <script src='lib/angular-google-maps/dist/angular-google-maps.min.js'></script>
+
+    <!-- Base controllers-->
+    <script src="modules/app.js"></script>
+    <script src="modules/admin/controllers/main.js"></script>
+    <script src="modules/admin/controllers/login.js"></script>
+    <script src="modules/admin/controllers/navbar.js"></script>
+    <script src="modules/admin/controllers/messages.js"></script>
+
+    <!-- Log controllers-->
+    <script src="modules/logEntries/controllers/logEntryIndex.js"></script>
+    <script src="modules/logEntries/controllers/logEntryView.js"></script>
+
+    <!-- Services-->
+    <script src="modules/admin/services/storageService.js"></script>
+    <script src="modules/admin/services/authService.js"></script>
+    <script src="modules/admin/services/flashService.js"></script>
+    <script src="modules/admin/interceptors/authInterceptor.js"></script>
+    <script src="modules/logEntries/services/logEntryService.js"></script>
+  </body>
+</html>

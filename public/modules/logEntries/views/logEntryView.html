@@ -1,0 +1,90 @@
+<section class="form-group">
+
+  <header>
+    <h2>Actions Log Entry</h2>
+  </header>
+
+  <table class="table-striped table">
+    <tr>
+      <th>Type</th>
+      <td>
+        <span ng-if="logEntry.type === 'error'" class="text-danger"><strong>Error</strong></span>
+        <span ng-if="logEntry.type === 'success'" class="text-success"><strong>Success</strong></span>
+      </td>
+    </tr>
+    <tr>
+      <th>User</th>
+      <td>{{logEntry.User.sapUsername}}</td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td>{{logEntry.timestamp | date : 'medium'}}</td>
+    </tr>
+    <tr>
+      <th>Action</th>
+      <td>{{logEntry.action}}</td>
+    </tr>
+    <tr>
+      <th>End Customer</th>
+      <td>
+        <button type="button" class="btn btn-default" ng-click="customerVisible = !customerVisible">Show/Hide</button>
+        <hr ng-show="customerVisible" />
+        <pre uib-collapse="! customerVisible">{{customerInfo | json}}</pre>
+      </td>
+    </tr>
+    <tr>
+      <th>User Request</th>
+      <td>
+        <button type="button" class="btn btn-default" ng-click="requestIsVisible = !requestIsVisible">Show/Hide</button>
+        <hr ng-show="requestIsVisible" />
+        <pre uib-collapse="! requestIsVisible">{{logEntry.params | json}}</pre>
+      </td>
+    </tr>
+    <tr>
+      <th>SAP Request</th>
+      <td>
+        <button type="button" class="btn btn-default" ng-click="sapRequestIsVisible = !sapRequestIsVisible">Show/Hide</button>
+        <hr ng-show="sapRequestIsVisible" />
+        <pre uib-collapse="! sapRequestIsVisible">{{logEntry.sapParams | json}}</pre>
+      </td>
+    </tr>
+    <tr>
+      <th>Response</th>
+      <td>
+        <button type="button" class="btn btn-default" ng-click="responseIsVisible = !responseIsVisible">Show/Hide</button>
+        <hr ng-show="responseIsVisible" />
+        <pre uib-collapse="! responseIsVisible">{{logEntry.response | json}}</pre>
+      </td>
+    </tr>
+    <tr ng-if="logEntry.type === 'success' && logEntry.location">
+      <th>Map</th>
+      <td>
+        <p>Click on the markers or blue distance line to see more details.</p>
+        <div class="map_canvas">
+          <ui-gmap-google-map center="mapsOptions.center" zoom="mapsOptions.zoom" options="mapsOptions.options">
+            <ui-gmap-marker coords="logEntry.location" idkey="logEntry.id" options="markerOptions" events="markerEvents">
+            </ui-gmap-marker>
+            <ui-gmap-marker ng-if="logEntry.customerLocation" coords="logEntry.customerLocation" idkey="logEntry.action" options="customerMarkerOptions" events="customerMarkerEvents">
+            </ui-gmap-marker>
+            <ui-gmap-polyline ng-if="logEntry.customerLocation" path="linePath" geodesic="true" stroke="lineOptions" events="lineEvents"></ui-gmap-polyline>
+            <ui-gmap-marker ng-if="lineMarkerCoords" coords="lineMarkerCoords" idkey="lineMarkerId" options="lineMarkerOptions">
+            </ui-gmap-marker>
+          </ui-gmap-google-map>
+        </div>
+      </td>
+    </tr>
+    <tr ng-if="logEntry.image">
+      <th>Image</th>
+      <td>
+        <a href="{{ logEntry.image }}" target="_blank">
+          <img width="400" ng-src="{{ logEntry.image }}" alt="" class="img-responsive" />
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <div>
+    <button class="btn btn-primary" type="button" ng-click="back()">Back</button>
+  </div>
+
+</section>

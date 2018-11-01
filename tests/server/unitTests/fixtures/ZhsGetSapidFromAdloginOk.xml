@@ -1,0 +1,7 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"><env:Header/>
+<env:Body>
+<ns1:ZhsGetSapidFromAdloginResponse xmlns:ns1='urn:sap-com:document:sap:soap:functions:mc-style'>
+  <EErrorText></EErrorText>
+  <ESaploginid>johndoe</ESaploginid>
+</ns1:ZhsGetSapidFromAdloginResponse>
+</env:Body></env:Envelope>

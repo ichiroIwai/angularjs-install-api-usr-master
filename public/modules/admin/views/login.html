@@ -1,0 +1,27 @@
+<section>
+
+  <header>
+    <h3>Log In</h3>
+  </header>
+
+  <div class="col-md-4">
+
+    <div ng-show="hasError" class="form-group has-error">
+        <p class="help-block">{{ errorMessage }}</p>
+    </div>
+
+    <form ng-submit="login(user)" novalidate>
+      <div class="form-group" ng-class="{'has-error': hasError}">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Username" ng-model="user.user">
+      </div>
+      <div class="form-group" ng-class="{'has-error': hasError}">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.pass">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+  </div>
+
+</section>

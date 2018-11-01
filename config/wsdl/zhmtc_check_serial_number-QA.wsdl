@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:s0="urn:sap-com:document:sap:rfc:functions"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+             targetNamespace="urn:sap-com:document:sap:rfc:functions">
+    <types>
+        <xsd:schema targetNamespace="urn:sap-com:document:sap:rfc:functions">
+            <xsd:element name="ZHMTC_CHECK_SERIAL_NUMBER">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="HAAS_ACCOUNT_NUMB" minOccurs="0">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="10"></xsd:maxLength>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SERIAL_NUMB">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="18"></xsd:maxLength>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="USER_ID" minOccurs="0">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="10"></xsd:maxLength>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="USER_LANGUAGE" minOccurs="0">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="2"></xsd:maxLength>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ZHMTC_CHECK_SERIAL_NUMBER.Response">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="ET_RETURN">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" minOccurs="0" maxOccurs="unbounded"
+                                                 type="s0:ZHMTC_MESSAGES"></xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="ZHMTC_MESSAGES">
+                <xsd:sequence>
+                    <xsd:element name="TYPE" minOccurs="0">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="1"></xsd:maxLength>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="MESSAGE" minOccurs="0">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="220"></xsd:maxLength>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="ZHMTC_CHECK_SERIAL_NUMBERInput">
+        <part name="parameters" element="s0:ZHMTC_CHECK_SERIAL_NUMBER"></part>
+    </message>
+    <message name="ZHMTC_CHECK_SERIAL_NUMBEROutput">
+        <part name="parameters" element="s0:ZHMTC_CHECK_SERIAL_NUMBER.Response"></part>
+    </message>
+    <portType name="ZHMTC_CHECK_SERIAL_NUMBERPortType">
+        <operation name="ZHMTC_CHECK_SERIAL_NUMBER">
+            <input message="s0:ZHMTC_CHECK_SERIAL_NUMBERInput"></input>
+            <output message="s0:ZHMTC_CHECK_SERIAL_NUMBEROutput"></output>
+        </operation>
+    </portType>
+    <binding name="ZHMTC_CHECK_SERIAL_NUMBERBinding" type="s0:ZHMTC_CHECK_SERIAL_NUMBERPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+        <operation name="ZHMTC_CHECK_SERIAL_NUMBER">
+            <soap:operation soapAction="http://www.sap.com/ZHMTC_CHECK_SERIAL_NUMBER"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+    </binding>
+    <service name="ZHMTC_CHECK_SERIAL_NUMBERService">
+        <documentation>SAP Service ZHMTC_CHECK_SERIAL_NUMBER via SOAP</documentation>
+        <port name="ZHMTC_CHECK_SERIAL_NUMBERPortType" binding="s0:ZHMTC_CHECK_SERIAL_NUMBERBinding">
+            <soap:address location="https://n1qasiisvm.haasauto.local:1443/sap/bc/soap/rfc"></soap:address>
+        </port>
+    </service>
+</definitions>

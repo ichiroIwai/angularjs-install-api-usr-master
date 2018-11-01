@@ -1,0 +1,21 @@
+{
+  "name": "install-api",
+  "version": "0.0.1",
+  "description": "Admin GUI for Install/Validation Apps",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.8",
+    "json3": "3.3.2",
+    "es5-shim": "4.3.1",
+    "jquery": "2.1.4",
+    "bootstrap": "3.3.6",
+    "angular-resource": "1.4.8",
+    "angular-route": "1.4.8",
+    "angular-bootstrap": "0.14.3",
+    "ngstorage": "0.3.10",
+    "ng-table": "0.8.3",
+    "angular-http-auth": "1.2.3",
+    "angular-google-maps": "2.2.1",
+    "lodash": "3.10.1"
+  }
+}

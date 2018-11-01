@@ -1,0 +1,5 @@
+<div ng-show="flash.get()" ng-controller="MessagesCtrl">
+  <div class="alert alert-{{ flash.get().type }}" role="alert">
+    {{ flash.get().message }}
+  </div>
+</div>

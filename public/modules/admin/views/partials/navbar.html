@@ -1,0 +1,19 @@
+<div class="navbar navbar-default" role="navigation" ng-controller="NavbarCtrl">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/" name="top">IAP Admin</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left" ng-show="isAuthorized()">
+        <li><a href="#/logEntries">Actions Log</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-show="! isAuthorized()">
+        <li><a href="#/login">Log In</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-show="isAuthorized()">
+        <li><a href="" ng-click="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
